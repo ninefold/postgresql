@@ -3,7 +3,8 @@
 # Please refer to the PostgreSQL documentation for details on
 # configuration settings.
 
-<% @config = node['postgresql']['config'].delete('include') -%>
+<% @config = node['postgresql']['config'].dup -%>
+<% @config.delete('include') -%>
 <% @config.sort.each do |key, value| -%>
 <% next if value.nil? -%>
 <%= key %> = <%=
@@ -20,5 +21,5 @@
 %>
 <% end -%>
 <% if node['postgresql']['config']['include'] -%>
-include <%= node['postgresql']['config']['include'] %>
+  include <%= "'#{node['postgresql']['config']['include']}'" %>
 <% end -%>
