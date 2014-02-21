@@ -3,7 +3,8 @@
 # Please refer to the PostgreSQL documentation for details on
 # configuration settings.
 
-<% node['postgresql']['config'].sort.each do |key, value| %>
+<% @config = node['postgresql']['config'].delete('include') -%>
+<% @config.sort.each do |key, value| -%>
 <% next if value.nil? -%>
 <%= key %> = <%=
   case value
@@ -17,4 +18,7 @@
     value
   end
 %>
-<% end %>
+<% end -%>
+<% if node['postgresql']['config']['include'] -%>
+include <%= node['postgresql']['config']['include'] %>
+<% end -%>
