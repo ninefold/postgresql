@@ -20,6 +20,6 @@
   end
 %>
 <% end -%>
-<% if node['postgresql']['config']['include'] -%>
-  include <%= "'#{node['postgresql']['config']['include']}'" %>
+<% unless node['postgresql']['config']['include'].to_s.empty? -%>
+include <%= "'#{node['postgresql']['config']['include']}'" %>
 <% end -%>
