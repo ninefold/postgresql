@@ -2,6 +2,9 @@ postgresql Cookbook CHANGELOG
 =============================
 This file is used to list changes made in each version of the postgresql cookbook.
 
+v3.3.5
+------
+Update the pgdg apt key location
 
 v3.3.4
 ------
