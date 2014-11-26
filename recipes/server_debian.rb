@@ -31,12 +31,10 @@ execute "start newer pg" do
   command "/etc/init.d/postgresql start #{node[:postgresql][:version]}"
   action :run
   only_if { ::File.exists?("/etc/postgresql/#{node[:postgresql][:version]}") }
-  ignore_failure true
 end
 
 execute "restart newer pg" do
   command "/etc/init.d/postgresql restart #{node[:postgresql][:version]}"
   action :nothing
   only_if { ::File.exists?("/etc/postgresql/#{node[:postgresql][:version]}") }
-  ignore_failure true
 end
