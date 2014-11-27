@@ -14,6 +14,8 @@
 <% @config.delete('unix_socket_directories') -%>
 <% when '9.3' -%>
 <% @config.delete('unix_socket_directory') -%>
+<% when '9.4' -%>
+<% @config.delete('unix_socket_directory') -%>
 <% end -%> 
 
 
